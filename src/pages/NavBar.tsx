@@ -1,48 +1,85 @@
-import { useState } from "react";
-import { CiMenuFries } from "react-icons/ci";
-import { IoMdClose } from "react-icons/io";
 import { NavLink } from "react-router-dom";
+import { Button } from "../components/ui/button";
+import { MdOutlineDarkMode } from "react-icons/md";
+import { useState } from "react";
+import { IoMdCloseCircleOutline } from "react-icons/io";
+import { IoMenu } from "react-icons/io5";
 
+interface INav {
+  name: string;
+  link: string;
+}
 const NavBar = () => {
-  const [open, setOpen] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   return (
-    <nav className="shadow-md w-full fixed top-0 left-0 h-24 z-10">
-      <div className="md:flex justify-around items-center py-4 md:px-10 px-7 ">
-        <div className="text-2xl font-bold cursor-pointer font-[Poppins]">
-          <img src="/my image/name.jpeg" width={60} className="rounded-[50%]" alt="" />
-        </div>
-        <div
-          onClick={() => setOpen(!open)}
-          className="text-3xl absolute right-8 top-6 cursor-pointer
-        md:hidden
-        "
-        >
-          {open ? <CiMenuFries /> : <IoMdClose />}
-        </div>
-        <ul
-          className={`md:flex md:items-center 
-         md:pb-0 pb-12 absolute md:static  md:z-auto z-[-1]
-          left-0 w-full md:w-auto md:pl-0 pl-9 transition-all 
-         duration-500 ease-in
-        ${open ? "top-20 opacity-100 bg-white text-black" : "top-[-490px] md:opacity-100 opacity-0"}
-          
-         `}
-        >
-          {nav.map((item) => (
-            <li key={item.name} className="md:ml-8 text-xl md:my-0 my-7">
+    <header className="flex m-auto justify-around items-center mt-5 sticky top-5 z-20">
+      <Button
+        variant="outline"
+        onClick={() => setShowModal(true)}
+        className=" bg-[#18181B] md:hidden block hover:border-5
+            hover:border-lime-600 hover:bg-lime-700"
+      >
+        <IoMenu />
+      </Button>
+      <div className="" />
+      <nav className="filterNav p-5 rounded-full hidden md:block sticky top-0 bg-white z-10">
+        <ul className="flex items-center justify-center space-x-5">
+          {navbar.map((item: INav) => (
+            <li
+              key={item.name}
+              className="hover:text-cyan-500 transition-all duration-300 ease-in-out"
+            >
               <NavLink to={item.link}>{item.name}</NavLink>
             </li>
           ))}
         </ul>
-      </div>
-    </nav>
+      </nav>
+      <Button
+        variant="outline"
+        className="w-12 border rounded-full bg-[#18181B] hover:bg-[#262629] hover:border-1 hover:border-yellow-500"
+      >
+        <MdOutlineDarkMode />
+      </Button>
+
+      {/* modal */}
+      {showModal && (
+        <div className="modal fixed inset-0 bg-[#282830e8] z-20">
+          <div>
+            <ul
+              className="w-[85%] mx-auto mt-[2rem]
+        rounded-2xl bg-[#18181b] px-[2rem] py-[1rem]"
+            >
+              <li className="text-right mb-5">
+                <Button
+                  className="w-5 rounded-full bg-[#18181B] hover:bg-red-600 hover:border-5
+            hover:border-red-600"
+                  variant="outline"
+                  onClick={() => setShowModal(false)}
+                >
+                  <IoMdCloseCircleOutline />
+                </Button>
+              </li>
+              {navbar.map((item, idx) => (
+                <li
+                  key={item.name}
+                  className={`border-b-none pb-4 pt-2 ${
+                    idx === navbar.length - 1 ? "" : "border-b-2"
+                  } hover:text-cyan-500 hover:text-xl transition-all duration-300 ease-in-out`}
+                >
+                  <NavLink to={item.link}>{item.name}</NavLink>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      )}
+    </header>
   );
 };
 
 export default NavBar;
 
-const nav = [
-  { name: "Home", link: "/" },
+const navbar = [
   { name: "About", link: "/" },
   { name: "Skills", link: "/" },
   { name: "Services", link: "/" },

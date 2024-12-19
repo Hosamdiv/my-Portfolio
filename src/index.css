@@ -6,16 +6,23 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  box-sizing: border-box;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  /* background-color: #242424; */
-
+  background: #18181B;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
 
+
+
+.filterNav {
+  background: rgba(255, 255, 255, 0.178);
+  backdrop-filter: blur(50px);
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.021);
 }
 
 .classImage {
@@ -38,5 +45,22 @@
   100% {
     border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
   }
+}
 
+.modal {
+  animation: mymove 0.80s 1;
+}
+
+@keyframes mymove {
+  0% {
+    scale: 0;
+  }
+
+  60% {
+    scale: 1.1;
+  }
+
+  100% {
+    scale: 1;
+  }
 }
