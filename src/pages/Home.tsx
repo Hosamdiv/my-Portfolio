@@ -12,6 +12,8 @@ import { RiGithubLine } from "react-icons/ri";
 import { SiHandshakeProtocol } from "react-icons/si";
 import AboutPage from "./About";
 import AddProjectsPage from "./AddProjects";
+import ContactForm from "./ContactForm";
+import FooterPage from "./Footer";
 
 const HomePage = () => {
   return (
@@ -37,7 +39,10 @@ const HomePage = () => {
               </p>
             </div>
             <div className="flex items-center  space-x-4  ">
-              <Button variant="subtle" className="border hover:bg-[#272729] p-4 rounded-xl ">
+              <Button
+                variant="subtle"
+                className="border hover:bg-[#272729] p-4 rounded-xl "
+              >
                 <FaTelegramPlane /> Say Hello
               </Button>
               <Button className="p-4 rounded-xl bg-[rgb(37,211,102)] text-white">
@@ -77,6 +82,8 @@ const HomePage = () => {
       </div>
       {/* <AboutPage /> */}
       <AddProjectsPage />
+      <ContactForm />
+      <FooterPage />
     </>
   );
 };

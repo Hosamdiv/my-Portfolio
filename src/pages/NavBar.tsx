@@ -26,7 +26,7 @@ const NavBar = () => {
           {navbar.map((item: INav) => (
             <li
               key={item.name}
-              className="hover:text-cyan-500 transition-all duration-300 ease-in-out"
+              className="text-[16px] hover:text-[#5dbcfc] hover:text-[18px] transition-all duration-300 ease-in-out"
             >
               <NavLink to={item.link}>{item.name}</NavLink>
             </li>

@@ -14,7 +14,7 @@ const AddProjectsPage = () => {
   ];
 
   return (
-    <main className="main-media w-[80%] m-auto flex gap-[2.64rem] items-start ">
+    <main className="main-media w-[80%] m-auto mb-20 border-t-2 pt-20 flex gap-[2.64rem] items-start ">
 
 
       <section className="section-left flex flex-col gap-[10px]">
