@@ -1,4 +1,4 @@
-/* @tailwind base; */
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -20,7 +20,7 @@
 
 
 .filterNav {
-  background: rgba(255, 255, 255, 0.178);
+  background: #ffffff2d;
   backdrop-filter: blur(50px);
   box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.021);
 }
@@ -62,5 +62,19 @@
 
   100% {
     scale: 1;
+  }
+}
+
+@media (max-width:600px){
+  .main-media{
+    flex-direction: column;
+    gap: 2.64rem;
+    align-items: center;
+  }
+
+  .section-left{
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }

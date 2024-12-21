@@ -11,11 +11,12 @@ import { IoIosArrowRoundDown } from "react-icons/io";
 import { RiGithubLine } from "react-icons/ri";
 import { SiHandshakeProtocol } from "react-icons/si";
 import AboutPage from "./About";
+import AddProjectsPage from "./AddProjects";
 
 const HomePage = () => {
   return (
     <>
-      <div className="md:pt-52 mb-20 items-center ml-5 ">
+      <div className="md:pt-24 mb-20 items-center ml-5 ">
         <div className="flex items-center flex-col w-[90%] m-auto md:flex-row">
           <div className="my-44 space-y-5 md:w-[70%]">
             <div className="space-y-2">
@@ -36,10 +37,10 @@ const HomePage = () => {
               </p>
             </div>
             <div className="flex items-center  space-x-4  ">
-              <Button className="rounded-xl ">
+              <Button variant="subtle" className="border hover:bg-[#272729] p-4 rounded-xl ">
                 <FaTelegramPlane /> Say Hello
               </Button>
-              <Button className="rounded-xl bg-[rgb(37,211,102)] text-white">
+              <Button className="p-4 rounded-xl bg-[rgb(37,211,102)] text-white">
                 <FaWhatsapp /> WhatsApp
               </Button>
               {/* icon name */}
@@ -74,7 +75,8 @@ const HomePage = () => {
           </button>
         </div>
       </div>
-      <AboutPage />
+      {/* <AboutPage /> */}
+      <AddProjectsPage />
     </>
   );
 };

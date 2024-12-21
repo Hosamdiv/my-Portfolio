@@ -10,14 +10,13 @@ interface INav {
   link: string;
 }
 const NavBar = () => {
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState<boolean>(false);
   return (
     <header className="flex m-auto justify-around items-center mt-5 sticky top-5 z-20">
       <Button
         variant="outline"
         onClick={() => setShowModal(true)}
-        className=" bg-[#18181B] md:hidden block hover:border-5
-            hover:border-lime-600 hover:bg-lime-700"
+        className=" bg-[#353536] md:hidden border-2  "
       >
         <IoMenu />
       </Button>
@@ -49,10 +48,11 @@ const NavBar = () => {
               className="w-[85%] mx-auto mt-[2rem]
         rounded-2xl bg-[#18181b] px-[2rem] py-[1rem]"
             >
-              <li className="text-right mb-5">
+              <li className="text-right mb-7">
                 <Button
-                  className="w-5 rounded-full bg-[#18181B] hover:bg-red-600 hover:border-5
-            hover:border-red-600"
+                  className="w-5 rounded-full bg-[#18181B]
+                hover:bg-red-600
+            hover:border-red-600 border-2"
                   variant="outline"
                   onClick={() => setShowModal(false)}
                 >
