@@ -43,19 +43,24 @@ const HomePage = () => {
             </div>
             <div className="flex items-center  space-x-4  ">
               <Button
+                borderColor={colorMode === "light" ? "#272729" : "white"}
+                borderWidth="1px"
                 variant="subtle"
-                className="border hover:bg-[#272729] p-4 rounded-xl "
+                className="hover:bg-[#25d366] p-4 rounded-xl"
               >
                 <FaTelegramPlane /> Say Hello
               </Button>
-              <Button className={`p-4 rounded-xl bg-[rgb(37,211,102)] text-white`}>
+
+              <Button
+                className={`p-4 rounded-xl bg-[#25d366] text-white`}
+              >
                 <FaWhatsapp /> WhatsApp
               </Button>
 
               {/* icon name */}
               <div className="flex text-2xl space-x-4 ml-10 ">
                 <Link to="https://www.facebook.com/profile.php?id=100026338921350&locale=ar_AR">
-                  <FaFacebookF/>
+                  <FaFacebookF />
                 </Link>
                 <Link to="https://www.linkedin.com/in/hosam-reda-5758282a2">
                   <FaLinkedinIn />
