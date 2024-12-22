@@ -9,15 +9,12 @@
   box-sizing: border-box;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background: #18181B;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
 }
-
-
 
 .filterNav {
   background: #ffffff2d;
@@ -48,7 +45,7 @@
 }
 
 .modal {
-  animation: mymove 0.80s 1;
+  animation: mymove 0.8s 1;
 }
 
 @keyframes mymove {
@@ -66,7 +63,7 @@
 }
 
 /* media add Projects */
-@media (max-width:600px) {
+@media (max-width: 600px) {
   .main-media {
     flex-direction: column;
     gap: 2.64rem;
@@ -106,7 +103,7 @@
   }
 
   .contact-us #message {
-    font-size: 4.5rem;
+    font-size: 1rem;
     line-height: 1;
   }
 
@@ -114,15 +111,15 @@
     font-size: 1rem;
     background: #000;
   }
-
 }
 
 @media (max-width: 600px) {
-
-
   footer.flex {
     flex-direction: column;
     gap: 2rem;
   }
-
+  .scrollTop {
+    opacity: 0.5;
+    width: 1.5rem;
+  }
 }

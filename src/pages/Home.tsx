@@ -10,19 +10,22 @@ import { CiDesktopMouse2 } from "react-icons/ci";
 import { IoIosArrowRoundDown } from "react-icons/io";
 import { RiGithubLine } from "react-icons/ri";
 import { SiHandshakeProtocol } from "react-icons/si";
-import AboutPage from "./About";
-import AddProjectsPage from "./AddProjects";
-import ContactForm from "./ContactForm";
-import FooterPage from "./Footer";
+import { useColorMode } from "../components/ui/color-mode";
 
 const HomePage = () => {
+  const { colorMode } = useColorMode();
+
   return (
     <>
-      <div className="md:pt-24 mb-20 items-center ml-5 ">
+      <div
+        className={`md:pt-24 mb-20 items-center ml-5  text-${
+          colorMode === "light" ? "black" : ""
+        }`}
+      >
         <div className="flex items-center flex-col w-[90%] m-auto md:flex-row">
           <div className="my-44 space-y-5 md:w-[70%]">
             <div className="space-y-2">
-              <h1 className="flex text-5xl font-bold">
+              <h1 className={`flex text-5xl font-bold `}>
                 Hosam Reda
                 <span className="ml-2">
                   <SiHandshakeProtocol />
@@ -31,7 +34,7 @@ const HomePage = () => {
               <p>________FrontEnd Developer</p>
             </div>
             <div>
-              <p className="max-w-[90%] opacity-50">
+              <p className={`max-w-[90%] opacity-80 `}>
                 My beginning was in the field of front-end, since the beginning
                 of the <br /> youth stage and I love programming a lot and have
                 a great passion for it and learn it very quickly, and since
@@ -45,13 +48,14 @@ const HomePage = () => {
               >
                 <FaTelegramPlane /> Say Hello
               </Button>
-              <Button className="p-4 rounded-xl bg-[rgb(37,211,102)] text-white">
+              <Button className={`p-4 rounded-xl bg-[rgb(37,211,102)] text-white`}>
                 <FaWhatsapp /> WhatsApp
               </Button>
+
               {/* icon name */}
               <div className="flex text-2xl space-x-4 ml-10 ">
                 <Link to="https://www.facebook.com/profile.php?id=100026338921350&locale=ar_AR">
-                  <FaFacebookF />
+                  <FaFacebookF/>
                 </Link>
                 <Link to="https://www.linkedin.com/in/hosam-reda-5758282a2">
                   <FaLinkedinIn />
@@ -80,10 +84,6 @@ const HomePage = () => {
           </button>
         </div>
       </div>
-      {/* <AboutPage /> */}
-      <AddProjectsPage />
-      <ContactForm />
-      <FooterPage />
     </>
   );
 };

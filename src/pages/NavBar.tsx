@@ -1,18 +1,25 @@
 import { NavLink } from "react-router-dom";
 import { Button } from "../components/ui/button";
-import { MdOutlineDarkMode } from "react-icons/md";
 import { useState } from "react";
-import { IoMdCloseCircleOutline } from "react-icons/io";
-import { IoMenu } from "react-icons/io5";
+import { IoMdCloseCircleOutline, IoMdSunny } from "react-icons/io";
+import { IoMenu, IoMoon } from "react-icons/io5";
+import { useColorMode } from "../components/ui/color-mode";
 
 interface INav {
   name: string;
   link: string;
 }
 const NavBar = () => {
+  const { colorMode, toggleColorMode } = useColorMode();
+
   const [showModal, setShowModal] = useState<boolean>(false);
   return (
-    <header className="flex m-auto justify-around items-center mt-5 sticky top-5 z-20">
+    <header
+      className={`flex m-auto justify-around items-center mt-5 
+        sticky top-5 z-20 
+    
+        `}
+    >
       <Button
         variant="outline"
         onClick={() => setShowModal(true)}
@@ -20,24 +27,35 @@ const NavBar = () => {
       >
         <IoMenu />
       </Button>
+
       <div className="" />
-      <nav className="filterNav p-5 rounded-full hidden md:block sticky top-0 bg-white z-10">
-        <ul className="flex items-center justify-center space-x-5">
+      <nav className="filterNav p-5 rounded-full font-semibold hidden
+       md:block sticky top-0 bg-white z-10">
+        <ul
+          className={`flex items-center justify-center space-x-5 
+          text-${colorMode === "light" ? "black" : "white"}
+
+          `}
+        >
           {navbar.map((item: INav) => (
             <li
               key={item.name}
-              className="text-[16px] hover:text-[#5dbcfc] hover:text-[18px] transition-all duration-300 ease-in-out"
+              className="text-[16px] hover:text-[#5dbcfc]
+               hover:text-[15px] transition-all duration-300 ease-in-out"
             >
               <NavLink to={item.link}>{item.name}</NavLink>
             </li>
           ))}
         </ul>
       </nav>
+
       <Button
+        onClick={toggleColorMode}
         variant="outline"
-        className="w-12 border rounded-full bg-[#18181B] hover:bg-[#262629] hover:border-1 hover:border-yellow-500"
+        className="w-12 border rounded-full text-white bg-[#13131b]
+         hover:bg-[#262629] hover:border-1"
       >
-        <MdOutlineDarkMode />
+        {colorMode === "light" ? <IoMoon /> : <IoMdSunny />}
       </Button>
 
       {/* modal */}
@@ -56,7 +74,7 @@ const NavBar = () => {
                   variant="outline"
                   onClick={() => setShowModal(false)}
                 >
-                  <IoMdCloseCircleOutline />
+                  <IoMdCloseCircleOutline  />
                 </Button>
               </li>
               {navbar.map((item, idx) => (

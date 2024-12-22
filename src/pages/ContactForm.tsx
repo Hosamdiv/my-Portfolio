@@ -46,14 +46,14 @@ const ContactForm = () => {
             <Textarea
               id="message"
               required
-              className={`${styleInout_Area.styles} text-8xl`}
+              className={`${styleInout_Area.styles} text-2xl`}
               name=""
             ></Textarea>
           </div>
           <Button
             type="submit"
             className="submit border border-[#3f3f46] m-auto
-             px-10 py-5 text-center font-semibold bg-[#24252e]
+            px-10 py-5 text-center font-semibold bg-[#24252e]
               hover:scale-[0.97]"
           >
             Submit
