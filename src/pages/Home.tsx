@@ -11,14 +11,21 @@ import { IoIosArrowRoundDown } from "react-icons/io";
 import { RiGithubLine } from "react-icons/ri";
 import { SiHandshakeProtocol } from "react-icons/si";
 import { useColorMode } from "../components/ui/color-mode";
-
+import { motion } from "motion/react";
 const HomePage = () => {
   const { colorMode } = useColorMode();
 
   return (
     <>
-      <div
-        className={`md:pt-24 mb-20 items-center ml-5  text-${
+      <motion.div
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{
+          duration: 2,
+          delay: 0.5,
+          ease: [0, 0.71, 0.2, 1.01],
+        }}
+        className={`md:pt-5 mb-10  items-center ml-5  text-${
           colorMode === "light" ? "black" : ""
         }`}
       >
@@ -51,9 +58,7 @@ const HomePage = () => {
                 <FaTelegramPlane /> Say Hello
               </Button>
 
-              <Button
-                className={`p-4 rounded-xl bg-[#25d366] text-white`}
-              >
+              <Button className={`p-4 rounded-xl bg-[#25d366] text-white`}>
                 <FaWhatsapp /> WhatsApp
               </Button>
 
@@ -73,7 +78,16 @@ const HomePage = () => {
           </div>
 
           <div>
-            <img
+            <motion.img
+              initial={{ opacity: 0, transform: "scale(0)" }}
+              animate={{ opacity: 1, transform: "scale(0.9)" }}
+              transition={{
+                damping: 4,
+                type: "spring",
+                stiffness: 100,
+                delay: 0.5,
+                ease: [0, 0.71, 0.2, 1.01],
+              }}
               className="classImage"
               src="/my image/name.jpeg"
               width={400}
@@ -88,7 +102,7 @@ const HomePage = () => {
             <IoIosArrowRoundDown className="text-3xl animate-bounce text-[rgb(37,211,102)]" />
           </button>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 };

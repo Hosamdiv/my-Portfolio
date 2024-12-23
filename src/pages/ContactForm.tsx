@@ -6,32 +6,54 @@ import { useForm, ValidationError } from "@formspree/react";
 import Lottie from "lottie-react";
 import doneAnimation from "../done/Animation - (2).json";
 import contactAnimation from "../done/Animation - (3).json";
+import { useState } from "react";
+interface IUser {
+  email: string;
+  message: string;
+}
+
 const styleInout_Area = {
   styles: `border w-[16rem] bg-[rgba(63,63,70,0.15)]
-               border-[rgb(63,63,70)] py-2 px-4 ml-4 rounded
-                transition duration-300 text-[1.1rem] outline-none
-                 hover:border-[#2dd4bf]
-                 focus:border-[#2dd4bf] text-[18px] `,
+           border-[rgb(63,63,70)] py-2 px-4 ml-4 rounded
+           transition duration-300 text-[1.1rem] outline-none
+           hover:border-[#2dd4bf]
+           focus:border-[#2dd4bf] text-[18px]`,
 };
 
 const ContactForm = () => {
   const { colorMode } = useColorMode();
   const [state, handleSubmit] = useForm("mpwwavqz");
+  const [user, setUser] = useState<IUser>({
+    email: "",
+    message: "",
+  });
 
-  // if (state.submitting) {
-  //   return <p>Thanks for joining!</p>;
-  // }
+  const changeHandler = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setUser({ ...user, [name]: value });
+
+    if (!value) {
+      setUser((prevUser) => ({
+        ...prevUser,
+        [name]: value,
+      }));
+    }
+  };
+  const removeInputs = () => {
+    if (state.submitting) {
+      setUser({
+        email: "",
+        message: "",
+      });
+    }
+  };
   return (
-    <section
-      className={`contact-us w-[80%]  m-auto my-10 pt-14 border-t-2
-
-    `}
-    >
+    <section className={`contact-us w-[80%] m-auto my-10 pt-14 border-t-2`}>
       <h1
         className={`flex items-center text-4xl text-[#f4f4f5] mb-[2rem] font-semibold
-      
-          ${colorMode === "light" ? "text-black" : "text-[#f4f4f5]"}
-      `}
+          ${colorMode === "light" ? "text-black" : "text-[#f4f4f5]"}`}
       >
         <span className="mr-6 text-5xl">
           <FaEnvelope />
@@ -40,25 +62,22 @@ const ContactForm = () => {
       </h1>
       <p
         className={`text-[#2e2e35] leading-[1.65rem]
-       ${colorMode === "light" ? "text-black" : "text-[#a1a1af]"}
-        `}
+          ${colorMode === "light" ? "text-black" : "text-[#a1a1af]"}`}
       >
         Contact us for more information and Get notified when I publish
         something new.
       </p>
 
-
-
-      <div className="flex ">
-        <form onSubmit={handleSubmit}
-         className=" form-media w-full m-auto">
+      <div className="flex">
+        <form
+          onSubmit={handleSubmit}
+          className="form-media w-full pt-10 m-auto"
+        >
           <div className="flexbox flex items-center">
             <label
               htmlFor="email"
               className={`text-[#2e2e35] 
-              
-      ${colorMode === "light" ? "text-black" : "text-[#a1a1af]"}
-              `}
+                ${colorMode === "light" ? "text-black" : "text-[#a1a1af]"}`}
             >
               Email Address:
             </label>
@@ -68,6 +87,8 @@ const ContactForm = () => {
               required
               type="email"
               name="email"
+              value={user.email}
+              onChange={changeHandler}
             />
             <ValidationError
               prefix="Email"
@@ -76,12 +97,11 @@ const ContactForm = () => {
             />
           </div>
 
-          <div className="flex items-center my-[20px] w-full m-auto ">
+          <div className="flex items-center my-[20px] w-full m-auto">
             <label
               htmlFor="message"
               className={`text-[#2e2e35] 
-              ${colorMode === "light" ? "text-black" : "text-[#a1a1af]"}
-                    `}
+                ${colorMode === "light" ? "text-black" : "text-[#a1a1af]"}`}
             >
               Your message:
             </label>
@@ -90,6 +110,8 @@ const ContactForm = () => {
               required
               className={`${styleInout_Area.styles} text-2xl`}
               name="message"
+              value={user.message}
+              onChange={changeHandler}
             />
             <ValidationError
               prefix="Message"
@@ -98,6 +120,7 @@ const ContactForm = () => {
             />
           </div>
           <Button
+            onClick={removeInputs}
             _hover={{
               transform: "scale(0.97)",
               transition: "transform 0.2s ease-in-out",
@@ -109,8 +132,7 @@ const ContactForm = () => {
             type="submit"
             disabled={state.submitting}
             className="submit border border-[#3f3f46] m-auto
-            px-10 py-5 text-center font-semibold bg-[#25d366]
-              "
+              px-10 py-5 text-center font-semibold bg-[#25d366]"
             loading={state.submitting}
           >
             Submit
@@ -125,22 +147,15 @@ const ContactForm = () => {
                 }}
                 animationData={doneAnimation}
               />
-              Your message has sent successfully
+              Your message has been sent successfully
             </p>
           )}
         </form>
 
-
         <div className="animation">
-          <Lottie
-          className="h-100  pb-4"
-            
-            animationData={contactAnimation}
-          />
+          <Lottie className="h-100 pb-4" animationData={contactAnimation} />
         </div>
       </div>
-
-
     </section>
   );
 };

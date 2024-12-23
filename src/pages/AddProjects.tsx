@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "../components/ui/button";
 import CartProjects from "../components/components/cartProjects";
 import { useColorMode } from "../components/ui/color-mode";
-
+import { AnimatePresence, motion } from "motion/react";
 interface IMyProjects {
   projectTitle: string;
   category: string;
@@ -75,21 +75,30 @@ const AddProjectsPage = () => {
           </Button>
         ))}
       </section>
-
-      <section
-        className="flex justify-center flex-row flex-wrap gap-5
+      <AnimatePresence>
+        <motion.section
+          layout
+          initial={{ scale: 0.5 }}
+          animate={{ scale: 1 }}
+          transition={{
+            damping: 6,
+            type: "easeInOut",
+            stiffness: 120,
+          }}
+          className="your-class-name flex justify-center flex-row flex-wrap gap-5
        flex-grow
       "
-      >
-        {arr.map((item) => (
-          <CartProjects
-            key={item.imgPath}
-            imgPage={item.imgPath}
-            title={item.projectTitle}
-            category={item.category}
-          />
-        ))}
-      </section>
+        >
+          {arr.map((item) => (
+            <CartProjects
+              key={item.imgPath}
+              imgPage={item.imgPath}
+              title={item.projectTitle}
+              category={item.category}
+            />
+          ))}
+        </motion.section>
+      </AnimatePresence>
     </main>
   );
 };
