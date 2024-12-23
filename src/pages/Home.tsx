@@ -89,7 +89,7 @@ const HomePage = () => {
                 ease: [0, 0.71, 0.2, 1.01],
               }}
               className="classImage"
-              src="/public/my_image/name.jpeg"
+              src="/src/assets/my_image/name.jpeg"
               width={400}
               alt="my name"
             />

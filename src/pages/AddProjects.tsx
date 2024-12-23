@@ -10,20 +10,36 @@ interface IMyProjects {
 }
 
 const myProjects: IMyProjects[] = [
-  { projectTitle: "All Project", category: "all", imgPath: "/public/1.jpg" },
-  { projectTitle: "HTML", category: "html-css", imgPath: "/public/3.jpg" },
+  {
+    projectTitle: "All Project",
+    category: "all",
+    imgPath: "/src/assets/all image/1.jpg",
+  },
+  {
+    projectTitle: "HTML",
+    category: "html-css",
+    imgPath: "/src/assets/all image/5.jpg",
+
+  },
   {
     projectTitle: "Javascript",
     category: "javascript",
-    imgPath: "/public/4.jpg",
+    imgPath: "/src/assets/all image/4.jpg",
+
   },
 
   {
     projectTitle: "React",
     category: "react",
-    imgPath: "/public/5.jpg",
+    imgPath: "/src/assets/all image/5.jpg",
+
   },
-  { projectTitle: "Redux", category: "redux", imgPath: "/public/6.jpg" },
+  {
+    projectTitle: "Redux",
+    category: "redux",
+    imgPath: "/src/assets/all image/6.jpg",
+
+  },
 ];
 
 const AddProjectsPage = () => {
