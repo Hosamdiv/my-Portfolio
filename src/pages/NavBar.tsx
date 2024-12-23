@@ -29,8 +29,10 @@ const NavBar = () => {
       </Button>
 
       <div className="" />
-      <nav className="filterNav p-5 rounded-full font-semibold hidden
-       md:block sticky top-0 bg-white z-10">
+      <nav
+        className="filterNav p-5 rounded-full font-semibold hidden
+       md:block sticky top-0 bg-white z-10"
+      >
         <ul
           className={`flex items-center justify-center space-x-5 
           text-${colorMode === "light" ? "black" : "white"}
@@ -74,7 +76,7 @@ const NavBar = () => {
                   variant="outline"
                   onClick={() => setShowModal(false)}
                 >
-                  <IoMdCloseCircleOutline  />
+                  <IoMdCloseCircleOutline />
                 </Button>
               </li>
               {navbar.map((item, idx) => (
@@ -82,7 +84,11 @@ const NavBar = () => {
                   key={item.name}
                   className={`border-b-none pb-4 pt-2 ${
                     idx === navbar.length - 1 ? "" : "border-b-2"
-                  } hover:text-cyan-500 hover:text-xl transition-all duration-300 ease-in-out`}
+                  } hover:text-cyan-500 hover:text-xl transition-all duration-300 ease-in-out
+          ${colorMode === "light" ? "text-white" : ""}
+                   
+                  
+                  `}
                 >
                   <NavLink to={item.link}>{item.name}</NavLink>
                 </li>

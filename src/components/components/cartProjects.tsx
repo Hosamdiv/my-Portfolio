@@ -14,14 +14,16 @@ const CartProjects = ({ title, imgPage, category }: ICart) => {
 
   return (
     <Card.Root
-    bg={colorMode === "light" ? "#e8fcfd" : ""}
+      bg={colorMode === "light" ? "#e8fcfd" : ""}
       maxW="xs"
       overflow="hidden"
-      className={`hover:rotate-6 font-bold rounded-xl border-2 bg-[#0f0f11] 
-     border-slate-900 transition-all duration-500 ease-in-out 
-      hover:border-2 hover:border-slate-900
-      
-      `}
+      className={` font-bold rounded-xl border-2 bg-[#0f0f11] 
+     border-slate-900
+      hover:border-2 hover:border-slate-900`}
+       transition="all 0.5s ease-in-out"
+      _hover={{
+        transform: "rotate(6deg)",
+      }}
     >
       <Image src={imgPage} alt="Green double couch with wooden legs" />
       <Card.Body gap="2">

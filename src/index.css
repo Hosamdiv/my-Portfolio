@@ -1,4 +1,4 @@
-@tailwind base;
+/* @tailwind base; */
 @tailwind components;
 @tailwind utilities;
 
@@ -29,6 +29,7 @@
   justify-self: center;
   animation: profile 8s ease-in-out infinite;
 }
+
 
 @keyframes profile {
   0% {
@@ -78,7 +79,7 @@
 }
 
 /* media add contactForm */
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   .contact-us .animation {
     display: none;
   }
