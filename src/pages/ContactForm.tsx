@@ -6,7 +6,7 @@ import { useForm, ValidationError } from "@formspree/react";
 import Lottie from "lottie-react";
 import doneAnimation from "../done/Animation - (2).json";
 import contactAnimation from "../done/Animation - (3).json";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 interface IUser {
   email: string;
   message: string;
@@ -33,22 +33,17 @@ const ContactForm = () => {
   ) => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
-
-    if (!value) {
-      setUser((prevUser) => ({
-        ...prevUser,
-        [name]: value,
-      }));
-    }
   };
-  const removeInputs = () => {
-    if (state.submitting) {
+
+  useEffect(() => {
+    if (state.succeeded) {
       setUser({
         email: "",
         message: "",
       });
     }
-  };
+  }, [state.succeeded]);
+
   return (
     <section className={`contact-us w-[80%] m-auto my-10 pt-14 border-t-2`}>
       <h1
@@ -120,11 +115,6 @@ const ContactForm = () => {
             />
           </div>
           <Button
-            onClick={removeInputs}
-            _hover={{
-              transform: "scale(0.97)",
-              transition: "transform 0.2s ease-in-out",
-            }}
             borderColor={
               colorMode === "light" ? "text-black" : "text-[#f4f4f5]"
             }
@@ -159,5 +149,7 @@ const ContactForm = () => {
     </section>
   );
 };
+
+
 
 export default ContactForm;

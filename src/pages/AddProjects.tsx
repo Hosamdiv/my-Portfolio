@@ -81,7 +81,7 @@ const AddProjectsPage = () => {
           initial={{ scale: 0.5 }}
           animate={{ scale: 1 }}
           transition={{
-            damping: 6,
+            damping: 1,
             type: "easeInOut",
             stiffness: 120,
           }}
