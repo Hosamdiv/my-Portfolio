@@ -77,6 +77,7 @@ const ContactForm = () => {
               Email Address:
             </label>
             <Input
+              bg={"transparent"}
               id="email"
               className={styleInout_Area.styles}
               required
@@ -101,6 +102,7 @@ const ContactForm = () => {
               Your message:
             </label>
             <Textarea
+              bg={"transparent"}
               id="message"
               required
               className={`${styleInout_Area.styles} text-2xl`}
@@ -149,7 +151,5 @@ const ContactForm = () => {
     </section>
   );
 };
-
-
 
 export default ContactForm;

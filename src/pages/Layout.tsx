@@ -41,7 +41,7 @@ const RootLayout = () => {
       <FooterPage />
       {showScroll && (
         <a href="#up">
-          <Button className="scrollTop w-[2.5rem] bg-[rgba(25,118,210,0.85)] rounded-full fixed bottom-3 right-3 hover:bg-[rgba(25,118,210)]">
+          <Button className="scrollTop w-[2.5rem] bg-[rgba(25,118,210,0.85)] rounded-full fixed bottom-6 right-6 hover:bg-[rgba(25,118,210)]">
             <IoIosArrowUp />
           </Button>
         </a>

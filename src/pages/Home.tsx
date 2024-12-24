@@ -14,6 +14,19 @@ import { useColorMode } from "../components/ui/color-mode";
 import { motion } from "motion/react";
 const HomePage = () => {
   const { colorMode } = useColorMode();
+  const message =
+    "مرحبًا! أنا سعيد بزيارتك لموقعي. كيف يمكنني مساعدتك في تحقيق أهدافك؟😊";
+
+  const url = `https://wa.me/201024717352?text=${encodeURIComponent(message)}`;
+
+  const handleWhatsAppRedirect = () => {
+    try {
+      window.open(url, "_blank");
+    } catch (error) {
+      console.error(error);
+      alert("عذرًا، لم نتمكن من فتح WhatsApp. تأكد أن التطبيق مثبت.");
+    }
+  };
 
   return (
     <>
@@ -58,7 +71,10 @@ const HomePage = () => {
                 <FaTelegramPlane /> Say Hello
               </Button>
 
-              <Button className={`p-4 rounded-xl bg-[#25d366] text-white`}>
+              <Button
+                onClick={handleWhatsAppRedirect}
+                className={`p-4 rounded-xl bg-[#25d366] text-white`}
+              >
                 <FaWhatsapp /> WhatsApp
               </Button>
 

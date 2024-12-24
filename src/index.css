@@ -76,6 +76,9 @@
     flex-wrap: wrap;
     justify-content: center;
   }
+  .button-left{
+    width: 8rem;
+  }
 }
 
 /* media add contactForm */

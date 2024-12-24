@@ -74,7 +74,7 @@ const AddProjectsPage = () => {
             bg={colorMode === "light" ? "#99cccc" : "	#333333"}
             key={label}
             variant="outline"
-            className={`bg-[#24252e] capitalize transition duration-300 opacity-100 hover:opacity-100 text-center w-[11rem] py-6 hover:scale-[0.97] ${
+            className={`button-left bg-[#24252e] capitalize transition duration-300 opacity-100 hover:opacity-100 text-center w-[10rem] py-5 hover:scale-[0.97] ${
               activeButton === label
                 ? "border-2 border-[#5dbcfc] opacity-100 font-semibold"
                 : ""

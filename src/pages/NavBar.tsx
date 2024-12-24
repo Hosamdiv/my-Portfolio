@@ -107,5 +107,5 @@ const navbar = [
   { name: "About", link: "/" },
   { name: "Skills", link: "/" },
   { name: "Services", link: "/" },
-  { name: "Portfolio", link: "/" },
+  { name: "Projects", link: "/" },
 ];
