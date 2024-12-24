@@ -31,6 +31,7 @@ const HomePage = () => {
   return (
     <>
       <motion.div
+        id="about-section"
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{
@@ -38,12 +39,12 @@ const HomePage = () => {
           delay: 0.5,
           ease: [0, 0.71, 0.2, 1.01],
         }}
-        className={`md:pt-5 mb-10  items-center ml-5  text-${
+        className={`md:pt-5 mb-10  items-center ml-5 text-${
           colorMode === "light" ? "black" : ""
         }`}
       >
         <div className="flex items-center flex-col w-[90%] m-auto md:flex-row">
-          <div className="my-44 space-y-5 md:w-[70%]">
+          <div className="my-52 space-y-5 md:w-[70%]">
             <div className="space-y-2">
               <h1 className={`flex text-5xl font-bold `}>
                 Hosam Reda

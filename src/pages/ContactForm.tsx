@@ -45,7 +45,10 @@ const ContactForm = () => {
   }, [state.succeeded]);
 
   return (
-    <section className={`contact-us w-[80%] m-auto my-10 pt-14 border-t-2`}>
+    <section
+      id="contact-section"
+      className={`contact-us w-[80%] m-auto my-10 pt-14 border-t-2`}
+    >
       <h1
         className={`flex items-center text-4xl text-[#f4f4f5] mb-[2rem] font-semibold
           ${colorMode === "light" ? "text-black" : "text-[#f4f4f5]"}`}

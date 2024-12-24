@@ -1,4 +1,3 @@
-import { NavLink } from "react-router-dom";
 import { Button } from "../components/ui/button";
 import { useState } from "react";
 import { IoMdCloseCircleOutline, IoMdSunny } from "react-icons/io";
@@ -45,8 +44,9 @@ const NavBar = () => {
               className="text-[16px] hover:text-[#5dbcfc]
                hover:text-[15px] transition-all duration-300 ease-in-out"
             >
-              <NavLink to={item.link}>{item.name}</NavLink>
+              <a href={item.link}>{item.name}</a>
             </li>
+            
           ))}
         </ul>
       </nav>
@@ -90,9 +90,10 @@ const NavBar = () => {
                   
                   `}
                 >
-                  <NavLink to={item.link}>{item.name}</NavLink>
+                  <a href={item.link}>{item.name}</a>
                 </li>
               ))}
+
             </ul>
           </div>
         </div>
@@ -104,8 +105,8 @@ const NavBar = () => {
 export default NavBar;
 
 const navbar = [
-  { name: "About", link: "/" },
-  { name: "Skills", link: "/" },
-  { name: "Services", link: "/" },
-  { name: "Projects", link: "/" },
+  { name: "About", link: "#about-section" },
+  { name: "Contact", link: "#contact-section" },
+  { name: "Projects", link: "#projects-section" },
+  { name: "Services", link: "#services-section" },
 ];
