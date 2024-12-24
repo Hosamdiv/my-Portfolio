@@ -62,25 +62,25 @@ const HomePage = () => {
                 2021...
               </p>
             </div>
-            <div className="flex items-center  space-x-4  ">
+            <div className="flex items-center space-x-3">
               <Button
                 borderColor={colorMode === "light" ? "#272729" : "white"}
                 borderWidth="1px"
                 variant="subtle"
-                className="hover:bg-[#25d366] p-4 rounded-xl"
+                className="hover:bg-[#25d366] p-3 rounded-xl"
               >
                 <FaTelegramPlane /> Say Hello
               </Button>
 
               <Button
                 onClick={handleWhatsAppRedirect}
-                className={`p-4 rounded-xl bg-[#25d366] text-white`}
+                className={`p-3 rounded-xl bg-[#25d366] text-white`}
               >
                 <FaWhatsapp /> WhatsApp
               </Button>
 
               {/* icon name */}
-              <div className="flex text-2xl space-x-4 ml-10 ">
+              <div className="flex text-2xl space-x-2 ml-10 ">
                 <Link to="https://www.facebook.com/profile.php?id=100026338921350&locale=ar_AR">
                   <FaFacebookF />
                 </Link>
