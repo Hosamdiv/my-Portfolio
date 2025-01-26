@@ -46,7 +46,6 @@ const NavBar = () => {
             >
               <a href={item.link}>{item.name}</a>
             </li>
-            
           ))}
         </ul>
       </nav>
@@ -86,14 +85,11 @@ const NavBar = () => {
                     idx === navbar.length - 1 ? "" : "border-b-2"
                   } hover:text-cyan-500 hover:text-xl transition-all duration-300 ease-in-out
           ${colorMode === "light" ? "text-white" : ""}
-                   
-                  
                   `}
                 >
                   <a href={item.link}>{item.name}</a>
                 </li>
               ))}
-
             </ul>
           </div>
         </div>
@@ -105,7 +101,7 @@ const NavBar = () => {
 export default NavBar;
 
 const navbar = [
-  { name: "About", link: "#about-section" },
+  { name: "Home", link: "#home-section" },
   { name: "Contact", link: "#contact-section" },
   { name: "Projects", link: "#projects-section" },
   { name: "Services", link: "#services-section" },

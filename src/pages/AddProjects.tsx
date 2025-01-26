@@ -3,38 +3,41 @@ import { Button } from "../components/ui/button";
 import CartProjects from "../components/components/cartProjects";
 import { useColorMode } from "../components/ui/color-mode";
 import { AnimatePresence, motion } from "motion/react";
-interface IMyProjects {
-  projectTitle: string;
-  category: string;
+export interface IMyProjects {
+  title: string;
+  category?: string;
+  description: string;
   imgPath: string;
+  link: string;
+  linkGithub: string;
 }
 
 const myProjects: IMyProjects[] = [
   {
-    projectTitle: "All Project",
-    category: "all",
+    title: " Project",
+    category: "",
+    description: "",
     imgPath: "/1.jpg",
-  },
-  {
-    projectTitle: "HTML",
-    category: "html-css",
-    imgPath: "/3.jpg",
-  },
-  {
-    projectTitle: "Javascript",
-    category: "javascript",
-    imgPath: "/4.jpg",
+    link: "",
+    linkGithub: "",
   },
 
   {
-    projectTitle: "React",
+    title: "Movies",
     category: "react",
-    imgPath: "/5.jpg",
+    description: "Find your favorite movie with ease.",
+
+    imgPath: "/movies.png",
+    link: "https://my-movies-three-delta.vercel.app/",
+    linkGithub: "https://github.com/Hosamdiv/my-movies",
   },
   {
-    projectTitle: "Redux",
+    title: "Redux",
     category: "redux",
+    description: "",
     imgPath: "/6.jpg",
+    link: "",
+    linkGithub: "",
   },
 ];
 
@@ -45,9 +48,7 @@ const AddProjectsPage = () => {
 
   const buttons = [
     { label: "All Projects", category: "all" },
-    { label: "HTML & CSS", category: "html-css" },
-    { label: "Javascript", category: "javascript" },
-    { label: "React & Tailwind", category: "react" },
+    { label: "React", category: "react" },
     { label: "React & Redux", category: "redux" },
   ];
 
@@ -105,9 +106,11 @@ const AddProjectsPage = () => {
           {arr.map((item) => (
             <CartProjects
               key={item.imgPath}
-              imgPage={item.imgPath}
-              title={item.projectTitle}
-              category={item.category}
+              description={item.description}
+              imgPath={item.imgPath}
+              title={item.title}
+              link={item.link}
+              linkGithub={item.linkGithub}
             />
           ))}
         </motion.section>

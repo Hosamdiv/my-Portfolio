@@ -31,7 +31,7 @@ const HomePage = () => {
   return (
     <>
       <motion.div
-        id="about-section"
+        id="home-section"
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{
