@@ -22,7 +22,7 @@ const NavBar = () => {
       <Button
         variant="outline"
         onClick={() => setShowModal(!showModal)}
-        className=" bg-[#353536] md:hidden border-2  "
+        className=" bg-[#353536] text-white md:hidden border-2  "
       >
         <IoMenu />
       </Button>
