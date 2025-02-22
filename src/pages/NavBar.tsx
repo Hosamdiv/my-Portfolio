@@ -21,7 +21,7 @@ const NavBar = () => {
     >
       <Button
         variant="outline"
-        onClick={() => setShowModal(true)}
+        onClick={() => setShowModal(!showModal)}
         className=" bg-[#353536] md:hidden border-2  "
       >
         <IoMenu />
@@ -54,7 +54,7 @@ const NavBar = () => {
         onClick={toggleColorMode}
         variant="outline"
         className="w-12 border rounded-full text-white bg-[#13131b]
-         hover:bg-[#262629] hover:border-1"
+        hover:bg-[#262629] hover:border-1"
       >
         {colorMode === "light" ? <IoMoon /> : <IoMdSunny />}
       </Button>
@@ -73,7 +73,7 @@ const NavBar = () => {
                 hover:bg-red-600
             hover:border-red-600 border-2"
                   variant="outline"
-                  onClick={() => setShowModal(false)}
+                  onClick={() => setShowModal(!showModal)}
                 >
                   <IoMdCloseCircleOutline />
                 </Button>
@@ -87,7 +87,9 @@ const NavBar = () => {
           ${colorMode === "light" ? "text-white" : ""}
                   `}
                 >
-                  <a href={item.link}>{item.name}</a>
+                  <a href={item.link} onClick={() => setShowModal(!showModal)}>
+                    {item.name}
+                  </a>
                 </li>
               ))}
             </ul>
