@@ -6,6 +6,7 @@ import AddProjectsPage from "./AddProjects";
 import { Button } from "../components/ui/button";
 import { IoIosArrowUp } from "react-icons/io";
 import { useEffect, useState } from "react";
+import ServicesPage from "./Services";
 
 const RootLayout = () => {
   const [showScroll, setShowScroll] = useState(false);
@@ -37,6 +38,7 @@ const RootLayout = () => {
       <NavBar />
       <Outlet />
       <AddProjectsPage />
+      <ServicesPage/>
       <ContactForm />
       <FooterPage />
       {showScroll && (
